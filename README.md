@@ -1,4 +1,4 @@
-# Doodle Guesser
+# Socket.io chat
 
 ### Getting Started
 
@@ -24,7 +24,9 @@
    To start the application, run the following command
 
    ```bash
-   $ npm start
+   $ npm run dev
+   OR
+$ yarn dev
    ```
-
+   
    
