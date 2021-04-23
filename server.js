@@ -10,11 +10,22 @@ const nextHandler = nextApp.getRequestHandler();
 
 const PORT = 3000;
 
-io.on('connect', socket => {
-    socket.emit('now', {
-        message: 'zeit'
-    })
-})
+// io.on('connection', socket => {
+//     // socket.emit('now', {
+//     //     message: 'zeit'
+//     // })
+
+//     socket.on('send_message', data => {
+//         socket.emit('recieve_message', data);
+//     })
+// });
+
+io.on("connect", (socket) => {
+    socket.on("say to someone", (id, msg) => {
+        // send a private message to the socket with the given id
+        socket.to(id).emit("my message", msg);
+    });
+});
 
 nextApp.prepare()
     .then(() => {
